@@ -25,3 +25,25 @@ mvn clean package
 ```
 
 Sau đó chạy class `com.example.studentmanagement.Main`.
+
+## MySQL JDBC
+
+Ứng dụng sẽ thử kết nối MySQL trước. Nếu không kết nối được, nó tự chuyển sang lưu tạm trong bộ nhớ.
+
+Tạo database và bảng:
+
+```sql
+CREATE DATABASE student_db;
+
+USE student_db;
+
+CREATE TABLE students (
+    id VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    class_name VARCHAR(50) NOT NULL,
+    gpa DOUBLE NOT NULL
+);
+```
+
+Sửa thông tin kết nối trong `src/main/java/com/example/studentmanagement/util/DbConfig.java`.
